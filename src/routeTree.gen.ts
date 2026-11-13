@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AbrigosRouteImport } from './routes/abrigos'
 import { Route as AdicionarRouteImport } from './routes/adicionar'
+import { Route as AjustesRouteImport } from './routes/ajustes'
 import { Route as CirculoRouteImport } from './routes/circulo'
+import { Route as MuralRouteImport } from './routes/mural'
 import { Route as NovoContatoRouteImport } from './routes/novo-contato'
 import { Route as ConversaIdRouteImport } from './routes/conversa.$id'
 
@@ -20,14 +23,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AbrigosRoute = AbrigosRouteImport.update({
+  id: '/abrigos',
+  path: '/abrigos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdicionarRoute = AdicionarRouteImport.update({
   id: '/adicionar',
   path: '/adicionar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AjustesRoute = AjustesRouteImport.update({
+  id: '/ajustes',
+  path: '/ajustes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CirculoRoute = CirculoRouteImport.update({
   id: '/circulo',
   path: '/circulo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MuralRoute = MuralRouteImport.update({
+  id: '/mural',
+  path: '/mural',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NovoContatoRoute = NovoContatoRouteImport.update({
@@ -43,44 +61,75 @@ const ConversaIdRoute = ConversaIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/abrigos': typeof AbrigosRoute
   '/adicionar': typeof AdicionarRoute
+  '/ajustes': typeof AjustesRoute
   '/circulo': typeof CirculoRoute
+  '/mural': typeof MuralRoute
   '/novo-contato': typeof NovoContatoRoute
   '/conversa/$id': typeof ConversaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/abrigos': typeof AbrigosRoute
   '/adicionar': typeof AdicionarRoute
+  '/ajustes': typeof AjustesRoute
   '/circulo': typeof CirculoRoute
+  '/mural': typeof MuralRoute
   '/novo-contato': typeof NovoContatoRoute
   '/conversa/$id': typeof ConversaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/abrigos': typeof AbrigosRoute
   '/adicionar': typeof AdicionarRoute
+  '/ajustes': typeof AjustesRoute
   '/circulo': typeof CirculoRoute
+  '/mural': typeof MuralRoute
   '/novo-contato': typeof NovoContatoRoute
   '/conversa/$id': typeof ConversaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/adicionar' | '/circulo' | '/novo-contato' | '/conversa/$id'
+  fullPaths:
+    | '/'
+    | '/abrigos'
+    | '/adicionar'
+    | '/ajustes'
+    | '/circulo'
+    | '/mural'
+    | '/novo-contato'
+    | '/conversa/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/adicionar' | '/circulo' | '/novo-contato' | '/conversa/$id'
+  to:
+    | '/'
+    | '/abrigos'
+    | '/adicionar'
+    | '/ajustes'
+    | '/circulo'
+    | '/mural'
+    | '/novo-contato'
+    | '/conversa/$id'
   id:
     | '__root__'
     | '/'
+    | '/abrigos'
     | '/adicionar'
+    | '/ajustes'
     | '/circulo'
+    | '/mural'
     | '/novo-contato'
     | '/conversa/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AbrigosRoute: typeof AbrigosRoute
   AdicionarRoute: typeof AdicionarRoute
+  AjustesRoute: typeof AjustesRoute
   CirculoRoute: typeof CirculoRoute
+  MuralRoute: typeof MuralRoute
   NovoContatoRoute: typeof NovoContatoRoute
   ConversaIdRoute: typeof ConversaIdRoute
 }
@@ -94,6 +143,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/abrigos': {
+      id: '/abrigos'
+      path: '/abrigos'
+      fullPath: '/abrigos'
+      preLoaderRoute: typeof AbrigosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/adicionar': {
       id: '/adicionar'
       path: '/adicionar'
@@ -101,11 +157,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdicionarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ajustes': {
+      id: '/ajustes'
+      path: '/ajustes'
+      fullPath: '/ajustes'
+      preLoaderRoute: typeof AjustesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/circulo': {
       id: '/circulo'
       path: '/circulo'
       fullPath: '/circulo'
       preLoaderRoute: typeof CirculoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mural': {
+      id: '/mural'
+      path: '/mural'
+      fullPath: '/mural'
+      preLoaderRoute: typeof MuralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/novo-contato': {
@@ -127,8 +197,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AbrigosRoute: AbrigosRoute,
   AdicionarRoute: AdicionarRoute,
+  AjustesRoute: AjustesRoute,
   CirculoRoute: CirculoRoute,
+  MuralRoute: MuralRoute,
   NovoContatoRoute: NovoContatoRoute,
   ConversaIdRoute: ConversaIdRoute,
 }
